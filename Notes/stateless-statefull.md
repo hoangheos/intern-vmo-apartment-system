@@ -25,7 +25,6 @@ Trong kiến trúc stateful, server sẽ lưu trữ thông tin về phiên làm 
 ⦁	Các server game online (cần liên tục lưu trạng thái của người chơi).
 
 
-
 Stateless (Phi trạng thái)
 Trong kiến trúc stateless, server không lưu trữ bất kỳ thông tin phiên làm việc nào của client. Mỗi yêu cầu từ client phải chứa tất cả thông tin cần thiết để server có thể xử lý nó.
 
@@ -60,11 +59,11 @@ Trong kiến trúc stateless, server không lưu trữ bất kỳ thông tin phi
 
 
 So sánh nhanh
-	Tiêu trí			Stateful (Có trạng thái)		Stateless (Phi trạng thái)
-	Lưu trữ trạng thái		Trên Server				Trên Client (hoặc trong chính request)
-	Bối cảnh mỗi yêu cầu		Server "nhớ" bối cảnh từ trước		Mỗi yêu cầu là độc lập, phải chứa đủ thông tin
-	Khả năng mở rộng		Thấp, phức tạp				Cao, dễ dàng
-	Độ tin cậy			Thấp (phụ thuộc vào một server)		Cao (không phụ thuộc server nào)
+	Tiêu trí				Stateful (Có trạng thái)			Stateless (Phi trạng thái)
+	Lưu trữ trạng thái		Trên Server							Trên Client (hoặc trong chính request)
+	Bối cảnh mỗi yêu cầu	Server "nhớ" bối cảnh từ trước		Mỗi yêu cầu là độc lập, phải chứa đủ thông tin
+	Khả năng mở rộng		Thấp, phức tạp						Cao, dễ dàng
+	Độ tin cậy				Thấp (phụ thuộc vào một server)		Cao (không phụ thuộc server nào)
 	Ví dụ điển hình			FTP, Game Server, Web App cũ		REST API, HTTP, Microservices
 
 => Không có kiến trúc nào là "tốt hơn" tuyệt đối. Sự lựa chọn phụ thuộc vào bài toán cụ thể.
