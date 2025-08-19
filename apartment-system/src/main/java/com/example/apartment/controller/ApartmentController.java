@@ -16,7 +16,7 @@ public class ApartmentController {
     public ApartmentController(ApartmentService service){ this.service = service; }
 
     @GetMapping public List<Apartment> all(){ return service.all(); }
-    @GetMapping("/{id}") public Apartment get(@PathVariable Long id){ return service.get(id); }
+    @GetMapping("/{id}") public Apartment get(@PathVariable("id") Long id){ return service.get(id); }
 
     @PostMapping public ResponseEntity<Apartment> create(@Valid @RequestBody CreateOrUpdate dto){
         Apartment a = new Apartment();

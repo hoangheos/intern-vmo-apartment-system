@@ -41,4 +41,19 @@ public class UserService implements UserDetailsService {
         return new User(u.getUsername(), u.getPassword(),
                 List.of(new SimpleGrantedAuthority("ROLE_" + u.getRole().name())));
     }
+
+    public AppUser changePassword(Long id, String newRawPassword) {
+        // 1. Tìm người dùng trong DB theo ID
+        AppUser user = repo.findById(id)
+                .orElseThrow(() -> new UsernameNotFoundException("Không tìm thấy người dùng với ID: " + id));
+
+        // 2. Mã hóa mật khẩu mới
+        String encodedPassword = encoder.encode(newRawPassword);
+
+        // 3. Cập nhật mật khẩu mới cho đối tượng user
+        user.setPassword(encodedPassword);
+
+        // 4. Lưu lại vào DB và trả về kết quả
+        return repo.save(user);
+    }
 }

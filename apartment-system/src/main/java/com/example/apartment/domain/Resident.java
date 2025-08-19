@@ -1,5 +1,6 @@
 package com.example.apartment.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.time.LocalDate;
@@ -29,6 +30,7 @@ public class Resident {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "apartment_id")
+    @JsonIgnore
     private Apartment apartment;
 
     // getters & setters
